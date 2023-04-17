@@ -9,14 +9,13 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Stack(
-          children: const [
-            BackgroundCirclePainter(),
-            MainSection(),
-          ],
-        ),
+    return Scaffold(
+      appBar: const CustomAppBar(),
+      body: Stack(
+        children: const [
+          BackgroundCirclePainter(),
+          MainSection(),
+        ],
       ),
     );
   }
@@ -29,14 +28,13 @@ class MainSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: const [
-        CustomNavSection(),
-        CustomBodySection(),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const [
+          CustomBodySection(),
+        ],
+      ),
     );
   }
 }
-
-

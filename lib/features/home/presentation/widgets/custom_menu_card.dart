@@ -17,45 +17,42 @@ class CustomMenuCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        onTap: onPressed,
-        splashColor: Colors.blue,
-        child: Container(
-          height: 175.h,
-          margin: EdgeInsets.symmetric(vertical: 8.h),
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-              color: Colors.white,
-              boxShadow: const [
-                BoxShadow(
-                  color: Colors.black12,
-                  blurRadius: 5,
-                ),
-              ],
-              borderRadius: BorderRadius.all(Radius.circular(20.w))),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                icon,
-                color: color,
-                size: 75.h,
-              ),
-              SizedBox(
-                height: 15.h,
-              ),
-              Text(
-                text,
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.bold,
-                ),
+    return GestureDetector(
+      
+      onTap: onPressed,
+      child: Container(
+        height: 175.h,
+        margin: EdgeInsets.symmetric(vertical: 8.h),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.black12,
+                blurRadius: 5,
               ),
             ],
-          ),
+            borderRadius: BorderRadius.all(Radius.circular(20.w))),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              color: color,
+              size: 75.h,
+            ),
+            SizedBox(
+              height: 15.h,
+            ),
+            Text(
+              text,
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 16.sp,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
       ),
     );

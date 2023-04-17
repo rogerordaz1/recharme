@@ -1,31 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:recharme/features/home/presentation/pages/default_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+import 'package:recharme/core/helpers/dependency_injection.dart';
+import 'package:recharme/features/home/presentation/blocs/cubit/nav_bar_cubit_cubit.dart';
+import 'core/helpers/dependency_injection.dart' as sl;
 
-void main() {
-  runApp(const MyApp());
-}
+import 'app.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(411.42857142857144, 867.4285714285714),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (context, child) {
-        return MaterialApp(
-          title: 'Recharme',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-          home: child,
-        );
-      },
-      child: const DefaultPage(),
-    );
-  }
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await sl.init();
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              NavBarCubitCubit(getIt<PersistentTabController>()),
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }

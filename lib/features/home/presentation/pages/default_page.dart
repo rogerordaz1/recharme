@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
-import 'package:recharme/core/colors.dart';
+import 'package:recharme/core/utils/colors.dart';
+import 'package:recharme/features/home/presentation/blocs/cubit/nav_bar_cubit_cubit.dart';
 import 'package:recharme/features/home/presentation/pages/home_page.dart';
+
+import '../widgets/botton_nav_bar_text.dart';
 
 class DefaultPage extends StatefulWidget {
   const DefaultPage({super.key});
@@ -14,14 +18,17 @@ class DefaultPage extends StatefulWidget {
 }
 
 class _DefaultPageState extends State<DefaultPage> {
-  PersistentTabController controller = PersistentTabController(initialIndex: 0);
-
   @override
   Widget build(BuildContext context) {
+    final navBarCubitCubit = context.watch<NavBarCubitCubit>();
+
     List<Widget> buildScreens() {
       return [
         const HomePage(),
-        const Center(child: Text("Second Page")),
+        Center(
+            child: GestureDetector(
+                onTap: () => navBarCubitCubit.changeSelectedTab(0),
+                child: const Text("Second Page"))),
         const Center(child: Text("3era Page")),
       ];
     }
@@ -35,7 +42,7 @@ class _DefaultPageState extends State<DefaultPage> {
               SizedBox(height: 4.h),
               DefaultTextStyle(
                 style: const TextStyle(),
-                child: controller.index == 0
+                child: navBarCubitCubit.controller.index == 0
                     ? const BottonNavBarText(
                         text: 'Home',
                       )
@@ -54,7 +61,7 @@ class _DefaultPageState extends State<DefaultPage> {
               SizedBox(height: 4.h),
               DefaultTextStyle(
                 style: const TextStyle(),
-                child: controller.index == 1
+                child: navBarCubitCubit.controller.index == 1
                     ? const BottonNavBarText(text: 'Lista Recargas')
                     : const Text(''),
               ),
@@ -70,7 +77,7 @@ class _DefaultPageState extends State<DefaultPage> {
               SizedBox(height: 4.h),
               DefaultTextStyle(
                 style: const TextStyle(),
-                child: controller.index == 2
+                child: navBarCubitCubit.controller.index == 2
                     ? const BottonNavBarText(text: 'Buscar')
                     : const Text(''),
               ),
@@ -84,7 +91,7 @@ class _DefaultPageState extends State<DefaultPage> {
 
     return PersistentTabView(
       context,
-      controller: controller,
+      controller: navBarCubitCubit.controller,
       screens: buildScreens(),
       items: navBarsItems(),
       confineInSafeArea: true,
@@ -123,28 +130,10 @@ class _DefaultPageState extends State<DefaultPage> {
       navBarStyle: NavBarStyle.style6,
       padding: NavBarPadding.only(top: 20.h),
       onItemSelected: (value) {
-        setState(() {
-          controller.index = value;
-        });
+        navBarCubitCubit.changeSelectedTab(value);
       },
 
       // Choose the nav bar style with this property.
-    );
-  }
-}
-
-class BottonNavBarText extends StatelessWidget {
-  const BottonNavBarText({
-    super.key,
-    required this.text,
-  });
-  final String text;
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: TextStyle(
-          fontSize: 12.sp, color: colorMiniText, fontWeight: FontWeight.bold),
     );
   }
 }
