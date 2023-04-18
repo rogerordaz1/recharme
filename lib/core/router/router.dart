@@ -7,6 +7,7 @@ final appRouter = GoRouter(
   routes: [
     GoRoute(
       path: '/',
+      name: DefaultPage.name,
       builder: (context, state) => const DefaultPage(),
     ),
   ],

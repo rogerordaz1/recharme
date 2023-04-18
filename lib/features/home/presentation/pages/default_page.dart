@@ -13,6 +13,8 @@ import '../widgets/botton_nav_bar_text.dart';
 class DefaultPage extends StatelessWidget {
   const DefaultPage({super.key});
 
+  static const String name = 'default';
+
   @override
   Widget build(BuildContext context) {
     final navBarCubitCubit = context.watch<NavBarCubitCubit>();

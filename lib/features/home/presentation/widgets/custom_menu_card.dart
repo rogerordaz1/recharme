@@ -18,21 +18,23 @@ class CustomMenuCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      
       onTap: onPressed,
       child: Container(
         height: 175.h,
         margin: EdgeInsets.symmetric(vertical: 8.h),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-            color: Colors.white,
-            boxShadow: const [
-              BoxShadow(
-                color: Colors.black12,
-                blurRadius: 5,
-              ),
-            ],
-            borderRadius: BorderRadius.all(Radius.circular(20.w))),
+          color: Colors.white,
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 5,
+            ),
+          ],
+          borderRadius: BorderRadius.all(
+            Radius.circular(20.w),
+          ),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
