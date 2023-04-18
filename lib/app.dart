@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:recharme/core/router/router.dart';
 
 import 'core/theme/app_theme.dart';
-import 'features/home/presentation/pages/default_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -15,13 +15,12 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp(
+        return MaterialApp.router(
+          routerConfig: appRouter,
           title: 'Recharme',
           theme: AppTheme().theme(),
-          home: child,
         );
       },
-      child: const DefaultPage(),
     );
   }
 }

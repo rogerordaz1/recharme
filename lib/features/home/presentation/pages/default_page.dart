@@ -10,14 +10,9 @@ import 'package:recharme/features/home/presentation/pages/home_page.dart';
 
 import '../widgets/botton_nav_bar_text.dart';
 
-class DefaultPage extends StatefulWidget {
+class DefaultPage extends StatelessWidget {
   const DefaultPage({super.key});
 
-  @override
-  State<DefaultPage> createState() => _DefaultPageState();
-}
-
-class _DefaultPageState extends State<DefaultPage> {
   @override
   Widget build(BuildContext context) {
     final navBarCubitCubit = context.watch<NavBarCubitCubit>();
