@@ -20,14 +20,6 @@ class CustomBodySection extends StatelessWidget {
           const HeaderText(),
           const SearchBar(),
           SizedBox(height: 25.h),
-          ElevatedButton(
-            onPressed: () {},
-            style: const ButtonStyle(
-              shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10)))),
-            ),
-            child: const Text('Boton'),
-          ),
           CustomMenuCard(
             text: 'Añadir Recarga',
             icon: Icons.add_call,
@@ -36,6 +28,7 @@ class CustomBodySection extends StatelessWidget {
               print('He tocado este widget');
             },
           ),
+          SizedBox(height: 15.h),
           const RowCardsMenu(
             text: 'Contactos',
             iconLeft: Icons.contact_page,
@@ -43,6 +36,7 @@ class CustomBodySection extends StatelessWidget {
             colorLeft: colorGreen,
             colorRight: colorBlueLight02,
           ),
+          SizedBox(height: 15.h),
           const RowCardsMenu(
             text: 'Añadir Recarga',
             iconLeft: Icons.phone_android_rounded,
