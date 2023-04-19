@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'custom_menu_card.dart';
 import 'widgets.dart';
 
 class RowCardsMenu extends StatelessWidget {

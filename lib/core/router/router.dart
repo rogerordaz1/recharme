@@ -1,5 +1,7 @@
 import 'package:go_router/go_router.dart';
-import 'package:recharme/features/home/presentation/pages/default_page.dart';
+
+
+import '../../presentation/home/pages/default_page.dart';
 
 // GoRouter configuration
 final appRouter = GoRouter(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../widgets/widgets.dart';
 
 class HomePage extends StatelessWidget {
@@ -14,17 +13,15 @@ class HomePage extends StatelessWidget {
       body: Stack(
         children: const [
           BackgroundCirclePainter(),
-          MainSection(),
+          _MainSection(),
         ],
       ),
     );
   }
 }
 
-class MainSection extends StatelessWidget {
-  const MainSection({
-    super.key,
-  });
+class _MainSection extends StatelessWidget {
+  const _MainSection();
 
   @override
   Widget build(BuildContext context) {

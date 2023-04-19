@@ -5,10 +5,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:recharme/core/utils/colors.dart';
-import 'package:recharme/features/home/presentation/blocs/cubit/nav_bar_cubit_cubit.dart';
-import 'package:recharme/features/home/presentation/pages/home_page.dart';
 
+
+import '../blocs/cubit/nav_bar_cubit_cubit.dart';
 import '../widgets/botton_nav_bar_text.dart';
+import 'home_page.dart';
 
 class DefaultPage extends StatelessWidget {
   const DefaultPage({super.key});
