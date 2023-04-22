@@ -35,7 +35,7 @@ class CustomMenuCard extends StatelessWidget {
         child: Material(
           child: InkWell(
             splashColor: color.withOpacity(0.2),
-            onTap: () {},
+            onTap: onPressed,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,

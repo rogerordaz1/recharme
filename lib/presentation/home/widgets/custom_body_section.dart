@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:recharme/core/utils/colors.dart';
+import 'package:recharme/presentation/recarga/pages/recarga_form_page.dart';
 
 import 'widgets.dart';
 
@@ -24,9 +26,7 @@ class CustomBodySection extends StatelessWidget {
             text: 'Añadir Recarga',
             icon: Icons.add_call,
             color: colorPink,
-            onPressed: () {
-              print('He tocado este widget');
-            },
+            onPressed: () => context.pushNamed(RecargaFormPage.name),
           ),
           SizedBox(height: 15.h),
           const RowCardsMenu(

@@ -13,6 +13,45 @@ class AppTheme {
         systemOverlayStyle: SystemUiOverlayStyle.dark,
         backgroundColor: colorPink,
       ),
+      inputDecorationTheme: const InputDecorationTheme(
+        prefixIconColor: colorGreen,
+        labelStyle: TextStyle(
+          color: colorGreen,
+        ),
+        
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+          borderSide: BorderSide(
+            color: colorPink,
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+          borderSide: BorderSide(
+            color: colorGreen,
+          ),
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+          borderSide: BorderSide(
+            color: colorGreen,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+          borderSide: BorderSide(
+            color: colorGreen,
+          ),
+        ),
+      ),
     );
   }
 }
